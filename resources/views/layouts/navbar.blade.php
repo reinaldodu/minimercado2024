@@ -31,7 +31,7 @@
 
   {{-- Si esta autenticado muestra menu de usuario, sino muestra botones de login y registro --}}
   @auth
-      <h3 class="mr-4 font-semibold">Hola, {{ auth()->user()->name }}</h3>
+      <h3 class="mr-2 font-semibold text-sm">Hola, {{ auth()->user()->name }}</h3>
       <div class="dropdown dropdown-end">
         <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar mr-4">
           <div class="w-10 rounded-full">
