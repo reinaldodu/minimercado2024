@@ -30,7 +30,7 @@ class ProductoController extends Controller
         ]);
 
         //guardar datos
-        $producto = Producto::create($datos);
+        Producto::create($datos);
 
         //respuesta al cliente
         return response()->json([
