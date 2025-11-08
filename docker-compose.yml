@@ -8,11 +8,12 @@ services:
     working_dir: /var/www
     volumes:
       - ./:/var/www
-      - ./storage:/var/www/storage
     networks:
       - minimercado-network
     depends_on:
       - db
+    ports:
+      - "5173:5173" # para Vite (opcional)
 
   nginx:
     image: nginx:alpine
