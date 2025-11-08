@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: minimercado2024-app
+    container_name: minimercado-app
     restart: unless-stopped
     working_dir: /var/www
     volumes:
@@ -12,12 +12,11 @@ services:
       - minimercado-network
     depends_on:
       - db
-    ports:
-      - "5173:5173" # para Vite (opcional)
+    tty: true
 
   nginx:
     image: nginx:alpine
-    container_name: minimercado2024-nginx
+    container_name: minimercado-nginx
     restart: unless-stopped
     ports:
       - "8000:80"
@@ -31,7 +30,7 @@ services:
 
   db:
     image: mysql:8.0
-    container_name: minimercado2024-db
+    container_name: minimercado-db
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
@@ -51,4 +50,3 @@ networks:
 
 volumes:
   dbdata:
-    driver: local
