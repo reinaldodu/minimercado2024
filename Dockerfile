@@ -1,5 +1,5 @@
 # Etapa 1: Build de dependencias (PHP + Composer + Node)
-FROM php:8.1-fpm as builder
+FROM php:8.2-fpm as builder
 
 # Instalar dependencias del sistema
 RUN apt-get update && apt-get install -y \
@@ -36,7 +36,7 @@ RUN npm install
 RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist
 
 # Etapa 2: Imagen final
-FROM php:8.1-fpm
+FROM php:8.2-fpm
 
 # Instalar dependencias necesarias
 RUN apt-get update && apt-get install -y \
